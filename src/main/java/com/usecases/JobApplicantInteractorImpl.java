@@ -20,16 +20,8 @@ public class JobApplicantInteractorImpl implements JobApplicantInteractor{
         this.jobApplicant = jobApplicant;
     }
 
-    public LocationLookup getLocationLookup() {
-        return locationLookup;
-    }
-
     public void setLocationLookup(LocationLookup locationLookup) {
         this.locationLookup = locationLookup;
-    }
-
-    public JobApplicantGateway getJobApplicantGateway() {
-        return jobApplicantGateway;
     }
 
     public void setJobApplicantGateway(JobApplicantGateway jobApplicantGateway) {

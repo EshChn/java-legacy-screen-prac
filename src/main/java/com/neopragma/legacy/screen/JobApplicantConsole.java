@@ -1,6 +1,9 @@
 package com.neopragma.legacy.screen;
 
 import com.entity.JobApplicant;
+import com.lookup.LocationLookup;
+import com.lookup.LocationLookupImpl;
+import com.usecases.JobApplicantGatewayImpl;
 import com.usecases.JobApplicantInteractor;
 import com.usecases.JobApplicantInteractorImpl;
 
@@ -10,10 +13,14 @@ import java.util.Scanner;
 
 public class JobApplicantConsole {
 
+    private static JobApplicantInteractorImpl jobApplicantInteractor;
+    private static LocationLookup locationLookup;
 
     public static void main(String[] args) throws URISyntaxException, IOException {
 
-        JobApplicantInteractor jobApplicantInteractor = new JobApplicantInteractorImpl();
+        jobApplicantInteractor = new JobApplicantInteractorImpl();
+        jobApplicantInteractor.setLocationLookup(new LocationLookupImpl());
+        jobApplicantInteractor.setJobApplicantGateway(new JobApplicantGatewayImpl());
         JobApplicant jobApplicant = jobApplicantInteractor.createJobApplicant();
 
         boolean done = false;
